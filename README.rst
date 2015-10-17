@@ -7,6 +7,13 @@ libslack is a lightweight python wrapper around the `Slack-Web-Api <https://api.
     Requires Python 3.x
 
 * for an example see scmd.py which provides a command line interface for the slack api.
+
+    .. code-block::
+
+        User@Host ~ $ scmd auth.test --auth-token xoxb-xxxxxxxxxx-yyyyyyyyyyyyyyyyyyyyyyyy
+        {'user_id': 'UXXXXXXXX', 'url': 'https://teamname.slack.com/', 'team': 'Teamname', 'user': 'username', 'team_id': 'TXXXXXXXX', 'ok': True}
+
+
 * for further details check the documentation.
 
 Dependencies
