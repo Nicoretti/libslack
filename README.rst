@@ -1,8 +1,7 @@
 libslack
 ========
 
-
-.. image:: https://coveralls.io/github/Nicoretti/libslack?branch=master
+.. image:: https://travis-ci.org/Nicoretti/libslack.svg?branch=master
     :target: https://travis-ci.org/Nicoretti/libslack
 
 .. image:: https://coveralls.io/repos/Nicoretti/libslack/badge.svg?branch=master&service=github
