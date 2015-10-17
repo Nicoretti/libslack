@@ -1,10 +1,19 @@
 libslack
 ========
 
+
+.. image:: https://coveralls.io/github/Nicoretti/libslack?branch=master
+    :target: https://travis-ci.org/Nicoretti/libslack.svg?branch=master
+
+.. image:: https://coveralls.io/repos/Nicoretti/libslack/badge.svg?branch=master&service=github
+    :target: https://coveralls.io/github/Nicoretti/libslack?branch=master
+
+
+
 libslack is a lightweight python wrapper around the `Slack-Web-Api <https://api.slack.com/web>`_.
 
 .. note::
-    Requires Python 3.x
+    Requires Python >= 3.4
 
 * for an example see scmd.py which provides a command line interface for the slack api.
 
