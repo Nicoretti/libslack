@@ -13,7 +13,7 @@ Dependencies
 
    * `docopt <http://docopt.org/>`_
 
-   .. note:: the dependecy is only required for the provided command line tool.
+.. note:: the dependecy is only required for the provided command line tool.
 
 Installation
 ============
