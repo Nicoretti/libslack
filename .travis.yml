@@ -14,5 +14,4 @@ script:
   - python setup.py test
   - coverage run --source=slackapi.py setup.py test
 
-
 after_success: coveralls
