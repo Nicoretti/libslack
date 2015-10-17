@@ -5,7 +5,7 @@ setup(
     version='0.1.1',
     packages=['', 'tests'],
     install_requires=['docopt'],
-    url='',
+    url='https://github.com/Nicoretti/libslack',
     license='BSD',
     author='Nicola Coretti',
     author_email='nico.coretti@gmail.com',
