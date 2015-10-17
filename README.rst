@@ -8,7 +8,10 @@ libslack is a lightweight wrapper around the slack web api.
 Installation
 ++++++++++++
 
- `pip install git+https://github.com/Nicoretti/libslack.git`
+.. code-block:: python
+
+   pip install git+https://github.com/Nicoretti/libslack.git
+
 
 
 Author: Nicola Coretti (nicola.coretti@gmail.com)
