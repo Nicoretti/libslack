@@ -5,8 +5,7 @@ libslack
     :target: https://travis-ci.org/Nicoretti/libslack
 
 .. image:: https://coveralls.io/repos/Nicoretti/libslack/badge.svg?branch=master&service=github
-    :target: https://coveralls.io/github/Nicoretti/libslack?branch=master
-
+  :target: https://coveralls.io/github/Nicoretti/libslack?branch=master
 
 
 libslack is a lightweight python wrapper around the `Slack-Web-Api <https://api.slack.com/web>`_.
