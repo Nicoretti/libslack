@@ -12,6 +12,7 @@ install:
   - pip list
 
 script:
+  - ls
   - python setup.py test
   - coverage run --source=libslack/slackapi.py setup.py test
 
