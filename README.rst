@@ -17,7 +17,7 @@ libslack is a lightweight python wrapper around the `Slack-Web-Api <https://api.
 * for further details check the documentation.
 
 Dependencies
-============
+++++++++++++
 
 * `docopt <http://docopt.org/>`_
 
@@ -25,7 +25,7 @@ Dependencies
     the dependecy is only required for the provided command line tool.
 
 Installation
-============
+++++++++++++
 
 .. code-block:: console
 
