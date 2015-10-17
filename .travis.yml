@@ -8,7 +8,6 @@ python:
 
 install:
   - pip install --upgrade pip
-  - virtualenv ~/jepvenv
   - pip install -e .
   - pip list
 
