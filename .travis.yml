@@ -8,8 +8,12 @@ python:
 
 install:
   - pip install --upgrade pip
+  - pip install coveralls
   - pip install -e .
   - pip list
 
 script:
   - python setup.py test
+  - coverage run setup.py test
+
+after_success: coveralls
