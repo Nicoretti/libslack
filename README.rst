@@ -12,7 +12,7 @@ libslack is a lightweight python wrapper around the `Slack-Web-Api <https://api.
 Dependencies
 ============
 
-   * `docopt <http://docopt.org/>`_
+* `docopt <http://docopt.org/>`_
 
 .. note::
     the dependecy is only required for the provided command line tool.
