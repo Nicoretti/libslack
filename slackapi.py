@@ -68,10 +68,10 @@ class SlackApi(object):
         Executes a call on the remote slack api and returns
         an appropriate ApiResponse object.
 
-        :return an ApiResponse object containing the data provided
+        :return: an ApiResponse object containing the data provided
                 by the slackapi endpoint.
 
-        :raise Exception if an unknown api method is called.
+        :raise: Exception if an unknown api method is called.
         """
         if api_call not in SlackApi.SLACK_API_CALLS:
             error_message = "Unknown api method was called"
@@ -83,13 +83,16 @@ class SlackApi(object):
 
 
 class SlackApiRequest(object):
+    """
+    The SlackApiRequest class handles and encapsulates a slack request.
+    """
 
     def __init__(self, api_call, authentication_token):
         """
         Creates a new ApiRequest object for the specified api call.
 
-        :param api_call name of the api method which shall be callable by the request object.
-        :param authentication_token which will be used to authorize the api call request.
+        :param api_call: name of the api method which shall be callable by the request object.
+        :param authentication_token: which will be used to authorize the api call request.
         """
         self._api_call = api_call
         self._authentication_token = authentication_token
@@ -102,9 +105,9 @@ class SlackApiRequest(object):
         :param request_parameters: a dictionary containing the parameters for the api call.
         :param authentication_token: which grants access to the api.
 
-        :return an ApiResponse object based on the response of the slackapi endpoint.
+        :return: an ApiResponse object based on the response of the slackapi endpoint.
 
-        :raise Exception if an error occurs while executing the api call.
+        :raise: Exception if an error occurs while executing the api call.
         """
         parameters = {}
         parameters.update({'token': self._authentication_token})
@@ -145,7 +148,7 @@ class SlackApiResponse(object):
         Indicates whether or not the response indicates that an
         error occured while trying to execute the associated api call.
 
-        :return True if an error has occurred, otherwise False.
+        :return: True if an error has occurred, otherwise False.
         """
         if 'ok' in self.data:
             return not self.data['ok']
@@ -157,7 +160,7 @@ class SlackApiResponse(object):
         If is_error returns True, this method returns a more detail
         error message.
 
-        :return a string which provides a more detail error message.
+        :return: a string which provides a more detail error message.
         """
         if 'error' in self.data:
             return self.data['error']
