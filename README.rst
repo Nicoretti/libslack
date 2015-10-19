@@ -1,6 +1,6 @@
-
 libslack
 ========
+
 .. image:: https://travis-ci.org/Nicoretti/libslack.svg?branch=master
     :target: https://travis-ci.org/Nicoretti/libslack
 
@@ -11,49 +11,48 @@ libslack
     :target: http://libslack.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
+Overview
+--------
 
 libslack is a lightweight python wrapper around the `Slack-Web-Api <https://api.slack.com/web>`_.
 As part of libslack a small tool called scmd.py which provides a command line interface for the slack api.
 
+It is released under a free software license, see LICENSE for more details.
 
-Slack API
----------
+Links
+-----
+* `Project on Github <https://github.com/Nicoretti/libslack>`_
+* `Documentation <http://libslack.readthedocs.org/en/latest/?badge=latest>`_
 
-.. code-block:: python
-
-        slack_api = slackapi.SlackApi(authentication_token=auth_token)
-        response = slack_api.call(args['API_COMMAND'], parameters=args['<params>'])
-
-Slack CMD
----------
-
-.. code-block:: console
-
-    User@Host ~ $ scmd auth.test --auth-token xoxb-xxxxxxxxxx-yyyyyyyyyyyyyyyyyyyyyyyy
-    {'user_id': 'UXXXXXXXX', 'url': 'https://teamname.slack.com/', 'team': 'Teamname', 'user': 'username', 'team_id': 'TXXXXXXXX', 'ok': True}
-
-
-* for further details check the documentation.
+Requirements
+------------
+* Python 3.4 and newer
 
 Dependencies
 ------------
-
-* `docopt <http://docopt.org/>`_
-
-.. note::
-    the dependecy is only required for the provided command line tool.
+* `docopt <https://github.com/docopt/docopt>`_
 
 Installation
 ------------
 
-.. attention::
-    Requires Python >= 3.4
+From PyPi
++++++++++
 
+.. code-block:: console
+
+    pip install libslack
+
+From Github
++++++++++++
 
 .. code-block:: console
 
    pip install git+https://github.com/Nicoretti/libslack.git
 
-Author: Nicola Coretti (nicola.coretti@gmail.com)
+From Source
++++++++++++
 
+.. code-block:: console
+
+    python3 setup.py install
 
