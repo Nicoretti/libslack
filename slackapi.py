@@ -55,13 +55,18 @@ class SlackApi(object):
                        'rtm.start', 'search.all', 'search.files', 'search.messages',
                        'stars.list', 'users.info', 'users.list', 'users.setActive'}
 
-    def __init__(self, authentication_token):
+    def __init__(self, authentication_token, request=None):
         """
         Creates a new Slack-Api object which can be used to interact with the slack api.
 
-        :param token: which grants autheticated access to the slack api.
+        :param string authentication_token: which grants authenticated access to the slack api.
+        :param class request: which encapsulates the request logic.
         """
         self._authentication_token = authentication_token
+        if not request:
+            self._request = SlackApiRequest
+        else:
+            self._request = request
 
     def call(self, api_call, parameters=None):
         """
@@ -77,7 +82,7 @@ class SlackApi(object):
             error_message = "Unknown api method was called"
             raise Exception(error_message)
         else:
-            request = SlackApiRequest(api_call, self._authentication_token)
+            request = self._request(api_call, self._authentication_token)
             response = request.execute(parameters)
             return response
 
@@ -166,9 +171,4 @@ class SlackApiResponse(object):
             return self.data['error']
         else:
             return 'No Error'
-
-
-def main():
-    pass
-
 

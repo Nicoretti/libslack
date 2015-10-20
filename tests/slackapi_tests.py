@@ -36,6 +36,21 @@ __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
 
 
+class SlackApiRequestMock(object):
+
+    RESPONSE = """{
+                      "ok": true
+                   }
+                """
+
+    def __init__(self, api_call, auth_token=None):
+        self.api_call = api_call
+        self.auth_token = auth_token
+
+    def execute(self, parameters):
+        return SlackApiResponse(self.RESPONSE)
+
+
 class ApiRequestTests(unittest.TestCase):
 
     def setUp(self):
@@ -49,7 +64,7 @@ class ApiRequestTests(unittest.TestCase):
     def tearDown(self):
         self.mocked_https_connection.reset_mock()
 
-    def test_api_request_is_successfull(self):
+    def test_api_request_is_successful(self):
         api_call = "api.test"
         parameters = urllib.parse.urlencode(self.parameters)
         api_request = SlackApiRequest(api_call, self.token)
@@ -62,6 +77,23 @@ class ApiRequestTests(unittest.TestCase):
         api_request._connection = self.mocked_https_connection
 
         api_request.execute("api.test")
+        expected_call_url = slackapi.API_BASE_URL + api_call + "?" + parameters
+        self.mocked_https_connection.request.assert_called_with("GET", expected_call_url)
+
+    def test_api_request_with_paramerters_is_successful(self):
+        api_call = "api.test"
+        self.parameters.update({'param': 10})
+        parameters = urllib.parse.urlencode(self.parameters)
+        api_request = SlackApiRequest(api_call, self.token)
+        response_data = {'ok': True, 'args': {'foo': 'bar'}}
+        response_json = json.dumps(response_data)
+        response_data = bytes(response_json.encode("utf-8"))
+        self.mocked_https_response.status = http.client.OK
+        self.mocked_https_response.read = MagicMock(return_value=response_data)
+        self.mocked_https_connection.getresponse = MagicMock(return_value=self.mocked_https_response)
+        api_request._connection = self.mocked_https_connection
+
+        api_request.execute(self.parameters)
         expected_call_url = slackapi.API_BASE_URL + api_call + "?" + parameters
         self.mocked_https_connection.request.assert_called_with("GET", expected_call_url)
 
@@ -92,11 +124,33 @@ class ApiResponseTests(unittest.TestCase):
         response = SlackApiResponse(input_data)
         self.assertTrue(response.is_error())
 
+    def test_is_error_indicates_api_call_failure_because_ok_field_is_not_contained(self):
+        input_data = {"error": "more detailed error message"}
+        input_data = json.dumps(input_data)
+        response = SlackApiResponse(input_data)
+        self.assertTrue(response.is_error())
+
     def test_is_error_indicates_that_api_call_was_successful(self):
         input_data = {"ok": True }
         input_data = json.dumps(input_data)
         response = SlackApiResponse(input_data)
         self.assertFalse(response.is_error())
+
+    def test_is_error_returns_the_correct_error_message(self):
+        error_message = "some error message"
+        input_data = {"ok": False, "error": error_message}
+        input_data = json.dumps(input_data)
+        response = SlackApiResponse(input_data)
+        self.assertTrue(response.is_error())
+        self.assertEqual(response.get_error_message(), error_message)
+
+    def test_is_error_returns_default_no_error_message_if_no_error_message_is_provided(self):
+        error_message = "No Error"
+        input_data = {"ok": False}
+        input_data = json.dumps(input_data)
+        response = SlackApiResponse(input_data)
+        self.assertTrue(response.is_error())
+        self.assertEqual(response.get_error_message(), error_message)
 
 
 class ApiTests(unittest.TestCase):
@@ -106,6 +160,13 @@ class ApiTests(unittest.TestCase):
         slackapi = SlackApi(authentication_token)
         unknown_api_call = "this.api.method.does.not.exist"
         self.assertRaises(Exception, slackapi.call, unknown_api_call)
+
+    def test_basic_api_call_is_successful(self):
+        self.api_call = 'api.test'
+        self.token = "TestToken"
+        api = SlackApi(self.token, SlackApiRequestMock)
+        response = api.call(self.api_call)
+        self.assertFalse(response.is_error())
 
 if __name__ == '__main__':
     unittest.main()
