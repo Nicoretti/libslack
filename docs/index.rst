@@ -8,6 +8,7 @@ Welcome to libslack's documentation!
     quickstart
     tools
     modules
+    license
 
 
 Indices and tables
