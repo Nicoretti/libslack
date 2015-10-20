@@ -18,9 +18,9 @@ install:
 script:
   - ls
   - python setup.py test
-  - coverage run --source=slackapi.py setup.py test
+  - coverage run --source="slackapi.py,sls.py,scmd.py,utils.py" setup.py test
   - ls -all
   - cat .coverage
 
-
 after_success: coveralls
+

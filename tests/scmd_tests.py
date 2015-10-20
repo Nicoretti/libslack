@@ -22,48 +22,12 @@
 # ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-import sys
-import docopt
-import slackapi
-from utils import try_to_get_auth_token
+import unittest
 
 __version__ = "0.1.1"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
 
 
-def main():
-    """
-    Usage:
-      scmd API_COMMAND [<params>] [--auth-token=<token>]
-      scmd -h | --help
-      scmd -v | --version
-
-    Options:
-      -h --help             Show this screen.
-      -v --version          Show version.
-      --auth-token=<token>  The authentication token which will be used to access
-                            the slack api.
-                            As an alternative you can specify it in the .slackrc
-                            or set the $SLACK_API_TOKEN environment variable.
-    """
-    args = docopt.docopt(doc=main.__doc__, version='0.0.1')
-    auth_token = None
-    if args['API_COMMAND']:
-        auth_token = try_to_get_auth_token(args)
-        if not auth_token:
-            print("Error: No authentication token available!", file=sys.stderr)
-            exit(-1)
-        slack_api = slackapi.SlackApi(authentication_token=auth_token)
-        response = slack_api.call(args['API_COMMAND'], parameters=args['<params>'])
-        if response.is_error():
-            error_message = "Error occured, details: {0}"
-            print(error_message.format(response.get_error_message()), file=sys.stderr)
-            exit(-2)
-        print(response.data)
-        exit(0)
-
-
-if __name__ == "__main__":
-    main()
+if __name__ == '__main__':
+    unittest.main()
