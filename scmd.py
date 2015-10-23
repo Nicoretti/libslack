@@ -36,13 +36,11 @@ __email__ = 'nico.coretti@gmail.com'
 def main():
     """
     Usage:
-      scmd API_COMMAND [<params>] [--auth-token=<token>]
-      scmd -h | --help
-      scmd -v | --version
+      scmd (API_COMMAND | -h | -v ) [<params>] [--auth-token=<token>]
 
     Options:
-      -h --help             Show this screen.
-      -v --version          Show version.
+      -h -                  Show this screen.
+      -v                    Show version.
       --auth-token=<token>  The authentication token which will be used to access
                             the slack api.
                             As an alternative you can specify it in the .slackrc
