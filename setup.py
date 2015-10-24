@@ -13,6 +13,7 @@ setup(
     entry_points={
         'console_scripts': [
             'scmd=scmd:main',
+            'sls=sls:main',
         ],
     },
     keywords=['slack', 'cmd', 'api'],

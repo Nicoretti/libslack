@@ -1,7 +1,0 @@
-scmd
-====
-
-.. automodule:: scmd
-    :members:
-
-

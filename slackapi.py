@@ -37,7 +37,8 @@ SLACK_DOMAIN = "www.slack.com"
 class SlackApi(object):
     """
     A SlackApi object can be used to interact with the slack api.
-    :see https://api.slack.com/methods
+
+    For futher details see `methods <https://api.slack.com/methods>`_.
     """
     SLACK_API_CALLS = {'api.test', 'auth.test', 'channels.archive',
                        'channels.create', 'channels.history', 'channels.info',
@@ -71,7 +72,16 @@ class SlackApi(object):
     def call(self, api_call, parameters=None):
         """
         Executes a call on the remote slack api and returns
-        an appropriate ApiResponse object.
+        an appropriate :py:class:`SlackApiResponse` object.
+
+        :param string api_call: which identifies the web api endpoint which shall be called.
+        :param dict parameters: which will be supplied to the web api endpoint.
+
+                                e.g.: ``{'channel': 'C1234567890', 'text': 'this message will be sent'}``
+
+                                .. attention::
+                                    The authentication-token allways will be passed to the endpoint implicitly.
+
 
         :return: an ApiResponse object containing the data provided
                 by the slackapi endpoint.
@@ -107,10 +117,15 @@ class SlackApiRequest(object):
         """
         Executes an ApiRequest, request an api call.
 
-        :param request_parameters: a dictionary containing the parameters for the api call.
+        :param dict request_parameters: which will be supplied to the web api endpoint.
+
+                                e.g.: ``{'channel': 'C1234567890', 'text': 'this message will be sent'}``
+
+                                .. attention::
+                                    The authentication-token allways will be passed to the endpoint implicitly.
         :param authentication_token: which grants access to the api.
 
-        :return: an ApiResponse object based on the response of the slackapi endpoint.
+        :return: an SlackApiResponse object based on the response of the slackapi endpoint.
 
         :raise: Exception if an error occurs while executing the api call.
         """
@@ -135,7 +150,7 @@ class SlackApiRequest(object):
 
 class SlackApiResponse(object):
     """
-    The ApiResponse class handles and encapsulates an response provided
+    The SlackApiResponse class handles and encapsulates an response provided
     by the slackapi after an api method was called at the endpoint.
     """
 
@@ -144,7 +159,7 @@ class SlackApiResponse(object):
         Interprets a response of slack api call and creates the appropriate ApiResponse object.
 
         :param response_data: a json string which is a valid response for
-                              a slackapi call :see https://api.slack.com/methods.
+                              a slackapi call. For futher detailssee `methods <https://api.slack.com/methods>`_.
         """
         self.data = json.loads(response_data)
 

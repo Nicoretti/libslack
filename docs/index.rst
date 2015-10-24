@@ -5,9 +5,8 @@ Welcome to libslack's documentation!
     :maxdepth: 3
 
     readme_link
-    quickstart
     tools
-    modules
+    slackapi
     license
 
 

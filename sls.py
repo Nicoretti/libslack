@@ -35,7 +35,6 @@ __email__ = 'nico.coretti@gmail.com'
 
 
 class SlackShell(cmd.Cmd):
-
     def __init__(self, auth_token):
         """
         Creates a new SlackShell which can be used to query various data from the slack server.
@@ -49,8 +48,21 @@ class SlackShell(cmd.Cmd):
         self._quit = False
 
     def _list_channels(self, args):
+        """
+        Lists all channels registered at the slack team the access token is associated with.
+
+        Options:
+            -h      prints this help.
+
+        Output-Format:
+        ID  Channel-Name   Members
+        """
         channels = self.slack_api.call("channels.list").data['channels']
         fmt_string = "ID: {0} \t{1}\tNumber of Members: {2}"
+        fmt_string = "| {0:^15} | {1:^30} | {2:^10} |"
+        print(fmt_string.format('Channel-Id', 'Channel-Name', 'Members'))
+        print('|' + '-' * 17 + '|' + '-' * 32 + '|' + '-' * 12 + "|")
+        fmt_string = "| {0:<15} | {1:<30} | {2:>10} |"
         for channel in channels:
             cid = channel['id'] if 'id' in channel else None
             name = channel['name'] if 'name' in channel else None
@@ -58,16 +70,53 @@ class SlackShell(cmd.Cmd):
             print(fmt_string.format(cid, name, number_of_members))
 
     def _list_users(self, args):
+        """
+        Lists all users registered at the slack team the access token is associated with.
+
+        Options:
+            -h      prints this help.
+
+        Output-Format:
+        ID  User-Name
+        """
         members = self.slack_api.call("users.list").data['members']
         member_dict = {}
-        fmt_string = "ID: {0} \t{1}"
+        fmt_string = "| {0:^15} | {1:^30} |"
+        print(fmt_string.format('User-Id', 'User-Name'))
+        print('|' + '-' * 50 + '|')
+        fmt_string = "| {0:<15} | {1:<30} |"
         for member in members:
             uid = member['id'] if 'id' in member else None
             name = member['name'] if 'name' in member else None
             print(fmt_string.format(uid, name))
 
     def do_list(self, args):
-        pass
+        """
+        The list command can be used to query various information fon the slack server.
+
+        Usage:
+            list channels [-h]
+            list users [-h]
+
+        Options:
+
+            -h  prints help for the preceding command.
+        """
+        args.strip()
+        arguments = args.split()
+        if not arguments:
+            print(self.do_list.__doc__)
+        else:
+            if 'channels' in arguments:
+                if '-h' in arguments:
+                    print(self._list_channels.__doc__)
+                else:
+                    self._list_channels(arguments)
+            elif 'users' in arguments:
+                if '-h' in arguments:
+                    print(self._list_users.__doc__)
+                else:
+                    self._list_users(arguments)
 
     def do_quit(self, args):
         """
@@ -79,7 +128,6 @@ class SlackShell(cmd.Cmd):
     def postcmd(self, stop, args):
         if self._quit:
             exit(0)
-
 
 def main():
     """
@@ -96,7 +144,7 @@ def main():
                             As an alternative you can specify it in the .slackyrc
                             or set the $SLACK_API_TOKEN environment variable.
     """
-    args = docopt.docopt(doc=USAGE, version='0.0.1')
+    args = docopt.docopt(doc=main.__doc__, version='0.0.1')
     auth_token = None
     auth_token = try_to_get_auth_token(args)
     if not auth_token:
@@ -108,5 +156,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

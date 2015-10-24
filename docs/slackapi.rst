@@ -1,5 +1,5 @@
-slackapi
-========
+API-Reference
+=============
 
 .. automodule:: slackapi
     :members:
