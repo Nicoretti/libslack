@@ -1,6 +1,3 @@
-.. image:: https://badge.waffle.io/Nicoretti/libslack.png?label=ready&title=Ready 
- :target: https://waffle.io/Nicoretti/libslack
- :alt: 'Stories in Ready'
 libslack
 ========
 
@@ -13,6 +10,10 @@ libslack
 .. image:: https://readthedocs.org/projects/libslack/badge/?version=latest
     :target: http://libslack.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
+
+.. image:: https://badge.waffle.io/Nicoretti/libslack.png?label=ready&title=Ready
+     :target: https://waffle.io/Nicoretti/libslack
+     :alt: 'Stories in Ready'
 
 Overview
 --------
