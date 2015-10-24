@@ -1,3 +1,6 @@
+.. image:: https://badge.waffle.io/Nicoretti/libslack.png?label=ready&title=Ready 
+ :target: https://waffle.io/Nicoretti/libslack
+ :alt: 'Stories in Ready'
 libslack
 ========
 
