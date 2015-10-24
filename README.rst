@@ -11,7 +11,7 @@ libslack
     :target: http://libslack.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: https://badge.waffle.io/Nicoretti/libslack.png?label=ready&title=Ready
+.. image:: https://badge.waffle.io/Nicoretti/libslack.png?label=RFC&title=RFC
      :target: https://waffle.io/Nicoretti/libslack
      :alt: 'Stories in Ready'
 
