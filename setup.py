@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='libslack',
     version='0.3.0',
-    packages=['tests'],
+    packages_dir={'libslack': '.'},
     install_requires=['docopt'],
     url='https://github.com/Nicoretti/libslack',
     license='BSD',
