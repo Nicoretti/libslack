@@ -22,13 +22,13 @@
 # ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-from utils import try_get_auth_token_from_environment, try_get_auth_token_from_rc_file, try_to_get_auth_token
 import io
 import os
 import unittest
-import tempfile
 
-__version__ = "0.1.1"
+from libslack.utils import try_get_auth_token_from_environment, try_get_auth_token_from_rc_file, try_to_get_auth_token
+
+__version__ = "0.5.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
 

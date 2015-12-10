@@ -26,12 +26,12 @@ import json
 import unittest
 import urllib
 import http.client
-import slackapi
-
 from unittest.mock import MagicMock
-from slackapi import SlackApi, SlackApiRequest, SlackApiResponse
 
-__version__ = "0.0.1"
+from libslack import slackapi
+from libslack.slackapi import SlackApi, SlackApiRequest, SlackApiResponse
+
+__version__ = "0.5.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
 

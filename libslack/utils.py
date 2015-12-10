@@ -25,7 +25,7 @@
 import os
 import configparser
 
-__version__ = "0.3.0"
+__version__ = "0.5.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
 

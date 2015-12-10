@@ -25,11 +25,13 @@
 
 import cmd
 import sys
-import docopt
-import slackapi
-from utils import try_to_get_auth_token
 
-__version__ = "0.3.0"
+import docopt
+
+from libslack import slackapi
+from libslack.utils import try_to_get_auth_token
+
+__version__ = "0.5.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
 

@@ -22,8 +22,12 @@
 # ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-__version__ = "0.1.1"
+import unittest
+
+__version__ = "0.5.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
 
-__all__ = ['slackapi_tests']
+
+if __name__ == '__main__':
+    unittest.main()
