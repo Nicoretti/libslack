@@ -1,8 +1,14 @@
 from setuptools import setup, find_packages
 
+MAJOR_VERSION = 0
+MINOR_VERSION = 6
+PATCH_VERSION = 1
+
+VERSION_TEMPLATE = '{major}.{minor}.{patch}'
+
 setup(
     name='libslack',
-    version='0.5.0',
+    version=VERSION_TEMPLATE.format(major=MAJOR_VERSION, minor=MINOR_VERSION, patch=PATCH_VERSION),
     packages=find_packages(),
     install_requires=['docopt'],
     url='https://github.com/Nicoretti/libslack',
