@@ -26,7 +26,7 @@ import json
 import urllib.parse
 import http.client
 
-__version__ = "0.1.1"
+__version__ = "0.3.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
 
