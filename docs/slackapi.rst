@@ -1,6 +1,6 @@
 API-Reference
 =============
 
-.. automodule:: slackapi
+.. automodule:: libslack.slackapi
     :members:
 
