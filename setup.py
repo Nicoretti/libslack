@@ -1,9 +1,9 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='libslack',
     version='0.3.0',
-    packages_dir={'libslack': '.'},
+    packages=find_packages(),
     install_requires=['docopt'],
     url='https://github.com/Nicoretti/libslack',
     license='BSD',
