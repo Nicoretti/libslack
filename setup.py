@@ -16,9 +16,6 @@ setup(
     author='Nicola Coretti',
     author_email='nico.coretti@gmail.com',
     description='A lightweight wrapper around the slack web API.',
-    package_data={
-        '.': ['**/*.rst']
-    },
     entry_points={
         'console_scripts': [
             'scmd=scmd:main',
@@ -27,4 +24,3 @@ setup(
     },
     keywords=['slack', 'cmd', 'api', 'shell'],
 )
-
