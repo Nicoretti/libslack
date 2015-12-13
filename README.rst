@@ -11,6 +11,10 @@ libslack
     :target: http://libslack.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
+.. image:: https://landscape.io/github/Nicoretti/libslack/master/landscape.svg?style=flat
+    :target: https://landscape.io/github/Nicoretti/libslack/master
+    :alt: Code Health
+
 .. image:: https://badge.waffle.io/Nicoretti/libslack.png?label=RFC&title=RFC
      :target: https://waffle.io/Nicoretti/libslack
      :alt: 'Stories in Ready'
