@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 MAJOR_VERSION = 0
-MINOR_VERSION = 6
+MINOR_VERSION = 7
 PATCH_VERSION = 1
 
 VERSION_TEMPLATE = '{major}.{minor}.{patch}'
@@ -18,8 +18,8 @@ setup(
     description='A lightweight wrapper around the slack web API.',
     entry_points={
         'console_scripts': [
-            'scmd=scmd:main',
-            'sls=sls:main',
+            'scmd=libslack.scmd:main',
+            'sls=libslack.sls:main',
         ],
     },
     keywords=['slack', 'cmd', 'api', 'shell'],
