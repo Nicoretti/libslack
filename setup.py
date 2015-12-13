@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 MAJOR_VERSION = 0
 MINOR_VERSION = 7
-PATCH_VERSION = 2
+PATCH_VERSION = 3
 
 VERSION_TEMPLATE = '{major}.{minor}.{patch}'
 
