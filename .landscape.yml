@@ -2,14 +2,3 @@ python-targets:
     - 3
 pep8:
   full: true
-uses:
-    - docopt
-requirements:
-    - requirements.txt
-ignore-paths:
-    - docs
-autodetect: yes
-doc-warnings: yes
-test-warnings: no
-strictness: veryhigh
-max-line-length: 120
