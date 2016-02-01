@@ -18,7 +18,7 @@ Status
     :target: https://landscape.io/github/Nicoretti/libslack/master
     :alt: Code Health
 
-.. image:: https://badge.waffle.io/Nicoretti/libslack.svg?label=ready&title=Ready
+.. image:: https://badge.waffle.io/Nicoretti/libslack.svg?label=ready&title=Ready&style=flat
     :target: https://waffle.io/Nicoretti/libslack
     :alt: 'Stories in Ready'
 
