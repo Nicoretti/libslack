@@ -18,7 +18,7 @@ Status
     :target: https://landscape.io/github/Nicoretti/libslack/master
     :alt: Code Health
 
-.. image:: https://img.shields.io/badge/pypi-available-blue.svg
+.. image:: https://img.shields.io/badge/pypi%20package-available-blue.svg
     :target: https://pypi.python.org/pypi/libslack
     :alt: package on pypi
 
