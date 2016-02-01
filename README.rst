@@ -21,13 +21,13 @@ Status
 Tickets
 -------
 
-.. image:: https://badge.waffle.io/Nicoretti/libslack.svg?label=ready&title=Ready&style=flat
-    :target: https://waffle.io/Nicoretti/libslack
-    :alt: 'Stories in Ready'
-
 .. image:: https://graphs.waffle.io/Nicoretti/libslack/throughput.svg
     :target: https://waffle.io/Nicoretti/libslack/metrics
     :alt: 'Throughput Graph'
+
+.. image:: https://badge.waffle.io/Nicoretti/libslack.svg?label=ready&title=Ready&style=flat
+    :target: https://waffle.io/Nicoretti/libslack
+    :alt: 'Stories in Ready'
 
 Overview
 --------
