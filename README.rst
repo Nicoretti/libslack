@@ -20,11 +20,10 @@ Status
 
 Tickets
 -------
-.. sidebar:: NextUp
 
-    .. image:: https://badge.waffle.io/Nicoretti/libslack.svg?label=ready&title=Ready&style=flat
-        :target: https://waffle.io/Nicoretti/libslack
-        :alt: 'Stories in Ready'
+.. image:: https://badge.waffle.io/Nicoretti/libslack.svg?label=ready&title=Ready&style=flat
+    :target: https://waffle.io/Nicoretti/libslack
+    :alt: 'Stories in Ready'
 
 .. image:: https://graphs.waffle.io/Nicoretti/libslack/throughput.svg
     :target: https://waffle.io/Nicoretti/libslack/metrics
