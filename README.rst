@@ -15,9 +15,13 @@ libslack
     :target: https://landscape.io/github/Nicoretti/libslack/master
     :alt: Code Health
 
-.. image:: https://badge.waffle.io/Nicoretti/libslack.png?label=RFC&title=RFC
-     :target: https://waffle.io/Nicoretti/libslack
-     :alt: 'Stories in Ready'
+.. image:: https://badge.waffle.io/Nicoretti/libslack.svg?label=ready&title=Ready
+    :target: https://waffle.io/Nicoretti/libslack
+    :alt: 'Stories in Ready'
+
+.. image:: https://graphs.waffle.io/Nicoretti/libslack/throughput.svg
+    :target: https://waffle.io/Nicoretti/libslack/metrics
+    :alt: 'Throughput Graph'
 
 Overview
 --------
