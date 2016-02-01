@@ -1,1 +1,2 @@
-__author__ = 'NiCoretti'
+__author__ = 'Nicola Coretti'
+__all__ = ['slackapi', 'utils']
