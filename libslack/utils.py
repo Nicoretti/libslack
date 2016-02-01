@@ -39,7 +39,6 @@ def try_get_auth_token_from_rc_file(rc_file):
     :return: if a api_token entry is found in the rc file the token
              will be returned, otherwise None will be returned.
     """
-    auth_token = None
     config = configparser.ConfigParser()
     try:
         config.read_file(rc_file)
