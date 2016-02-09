@@ -24,11 +24,11 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import os
 import configparser
+from libslack.version import LIBRARY_VERSION
 
-__version__ = "0.5.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
-
+__version__ = LIBRARY_VERSION
 
 def try_get_auth_token_from_rc_file(rc_file):
     """

@@ -1,10 +1,5 @@
 from setuptools import setup, find_packages
-
-MAJOR_VERSION = 0
-MINOR_VERSION = 7
-PATCH_VERSION = 4
-
-VERSION_TEMPLATE = '{major}.{minor}.{patch}'
+from libslack.version import VERSION_TEMPLATE, MAJOR_VERSION, MINOR_VERSION, PATCH_VERSION
 
 setup(
     name='libslack',

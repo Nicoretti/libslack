@@ -29,10 +29,11 @@ import docopt
 
 from libslack import slackapi
 from libslack.utils import try_to_get_auth_token
+from libslack.version import VERSION_TEMPLATE
 
-__version__ = "0.5.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
+__version__ = VERSION_TEMPLATE.format(major=0, minor=1, patch=0)
 
 
 def main():

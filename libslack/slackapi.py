@@ -25,10 +25,11 @@
 import json
 import urllib.parse
 import http.client
+from libslack.version import LIBRARY_VERSION
 
-__version__ = "0.5.0"
 __author__ = 'Nicola Coretti'
 __email__ = 'nico.coretti@gmail.com'
+__version__ = LIBRARY_VERSION
 
 API_BASE_URL = "https://slack.com/api/"
 SLACK_DOMAIN = "www.slack.com"
