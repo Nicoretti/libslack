@@ -38,6 +38,7 @@ __version__ = VERSION_TEMPLATE.format(major=0, minor=1, patch=0)
 
 
 class SlackShell(cmd.Cmd):
+
     def __init__(self, auth_token):
         """
         Creates a new SlackShell which can be used to query various data from the slack server.
@@ -130,7 +131,7 @@ class SlackShell(cmd.Cmd):
 
     def postcmd(self, stop, args):
         if self._quit:
-            exit(0)
+            sys.exit(0)
 
 def main():
     """
@@ -148,13 +149,13 @@ def main():
                             or set the $SLACK_API_TOKEN environment variable.
     """
     args = docopt.docopt(doc=main.__doc__, version='0.0.1')
-    auth_token = None
     auth_token = try_to_get_auth_token(args)
     if not auth_token:
         print("Error: No authentication token available!", file=sys.stderr)
-        exit(-1)
-    SlackShell(auth_token).cmdloop()
-    exit(0)
+        sys.exit(-1)
+    else:
+        SlackShell(auth_token).cmdloop()
+        sys.exit(0)
 
 
 if __name__ == "__main__":

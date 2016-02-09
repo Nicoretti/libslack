@@ -22,12 +22,44 @@
 # ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
 import unittest
+from unittest.mock import Mock, patch
+from libslack.sls import SlackShell, main
 
-__version__ = "0.5.0"
-__author__ = 'Nicola Coretti'
-__email__ = 'nico.coretti@gmail.com'
 
+class SlsTests(unittest.TestCase):
+
+    def setUp(self):
+        self._auth_token = 'XoXo-AuthToken-XXX-YYY'
+        self._shell = SlackShell(self._auth_token)
+
+    def tearDown(self):
+        pass
+
+    @patch('sys.exit')
+    def test_do_quite_command_calls_exit(self, exit_mock):
+        self._shell.do_quit('args')
+        self._shell.postcmd(None, None)
+        self.assertTrue(exit_mock.called)
+
+    @patch('libslack.utils.try_to_get_auth_token')
+    @patch('sys.argv')
+    @patch('sys.exit')
+    def test_main_loop_quits_because_of_missing_auth_token(self, exit_mock, argv_mock, get_auth_token_mock):
+        main()
+        self.assertTrue(get_auth_token_mock.called)
+        exit_mock.assert_called_with(-1)
+
+    @patch('sys.argv')
+    @patch('sys.exit')
+    @patch('cmd.Cmd.cmdloop')
+    def test_main_loop_quits_because_of_missing_auth_token(self, cmd_mock, exit_mock, argv_mock):
+        import os
+        os.environ['SLACK_API_TOKEN'] = 'xxx-yyy-zzz'
+        main()
+        exit_mock.assert_called_with(0)
+        self.assertTrue(cmd_mock.called)
 
 if __name__ == '__main__':
     unittest.main()

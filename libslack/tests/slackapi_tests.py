@@ -31,10 +31,6 @@ from unittest.mock import MagicMock
 from libslack import slackapi
 from libslack.slackapi import SlackApi, SlackApiRequest, SlackApiResponse
 
-__version__ = "0.5.0"
-__author__ = 'Nicola Coretti'
-__email__ = 'nico.coretti@gmail.com'
-
 
 class SlackApiRequestMock(object):
 

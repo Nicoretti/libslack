@@ -28,11 +28,6 @@ import unittest
 
 from libslack.utils import try_get_auth_token_from_environment, try_get_auth_token_from_rc_file, try_to_get_auth_token
 
-__version__ = "0.5.0"
-__author__ = 'Nicola Coretti'
-__email__ = 'nico.coretti@gmail.com'
-
-
 class TryGetAuthTokenRcFileTests(unittest.TestCase):
 
     def setUp(self):

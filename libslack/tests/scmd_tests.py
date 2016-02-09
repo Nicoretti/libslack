@@ -24,10 +24,5 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import unittest
 
-__version__ = "0.5.0"
-__author__ = 'Nicola Coretti'
-__email__ = 'nico.coretti@gmail.com'
-
-
 if __name__ == '__main__':
     unittest.main()

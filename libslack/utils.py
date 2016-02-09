@@ -75,7 +75,7 @@ def try_to_get_auth_token(args):
 
     :return: the api token if it could be found, otherwise None will be returned.
     """
-    if '--auth-token' in args:
+    if '--auth-token' in args and args['--auth-token']:
         return args['--auth-token']
     else:
         api_token = try_get_auth_token_from_environment()
