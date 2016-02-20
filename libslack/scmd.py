@@ -57,7 +57,8 @@ def main():
             print("Error: No authentication token available!", file=sys.stderr)
             exit(-1)
         slack_api = slackapi.SlackApi(authentication_token=auth_token)
-        response = slack_api.call(args['API_COMMAND'], parameters=eval(args['<params>']))
+        params = args['<params>'] if args['<params>'] else 'None'
+        response = slack_api.call(args['API_COMMAND'], parameters=eval(params))
         if response.is_error():
             error_message = "Error occured, details: {0}"
             print(error_message.format(response.get_error_message()), file=sys.stderr)
