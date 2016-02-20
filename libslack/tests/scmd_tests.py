@@ -40,7 +40,7 @@ class ScmdTest(unittest.TestCase):
     def test_main_usage_is_printed_if_invalid_parameres_are_specified(self, exit_mock, argv_mock):
         self.assertRaises(DocoptExit, main)
 
-    @patch.object(sys, 'argv', ['scmd.py', 'api'])
+    @patch.object(sys, 'argv', ['scmd.py', 'api.test'])
     def test_main_exits_with_due_to_missing_auth_token(self):
         self.assertRaises(SystemExit, main)
 
