@@ -47,7 +47,7 @@ class ScmdTest(unittest.TestCase):
     @patch('libslack.slackapi.SlackApi', spec=SlackApi)
     @patch.object(sys, 'argv', ['scmd.py', 'api.test'])
     @patch.object(os, 'environ', {'SLACK_API_TOKEN': 'xxx-yyy-zzz'})
-    def test_m(self, slackapi_mock):
+    def test_main_exits_if_an_error_response_is_returned(self, slackapi_mock):
         slackapi_mock.return_value.call.return_value.response.return_value.is_error.return_value = True
         self.assertRaises(SystemExit, main)
 
