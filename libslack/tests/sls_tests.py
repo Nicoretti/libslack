@@ -33,6 +33,8 @@ class SlsTests(unittest.TestCase):
     def setUp(self):
         self._auth_token = 'XoXo-AuthToken-XXX-YYY'
         self._shell = SlackShell(self._auth_token)
+        self._users = {'members': {'id': 'U1001', 'name': 'John Doe'}}
+        self._channels = {'members': {'id': 'C0001', 'name': 'General', 'num_members': 10}}
 
     def tearDown(self):
         pass
@@ -60,6 +62,42 @@ class SlsTests(unittest.TestCase):
         main()
         exit_mock.assert_called_with(0)
         self.assertTrue(cmd_mock.called)
+
+    @patch('builtins.print')
+    def test_if_do_list_prints_the_help_of_the_list_command_if_no_parameters_are_supplied(self, print_mock):
+        self._shell.do_list('')
+        print_mock.assert_called_once_with(self._shell.do_list.__doc__)
+
+    @patch('builtins.print')
+    def test_if_do_list_prints_the_help_of_the_channels_command_if_help_parameter_is_provided(self, print_mock):
+        self._shell.do_list('channels -h')
+        print_mock.assert_called_once_with(self._shell._list_channels.__doc__)
+
+    @patch('builtins.print')
+    def test_if_do_list_prints_the_help_of_the_users_command_if_help_parameter_is_provided(self, print_mock):
+        self._shell.do_list('users -h')
+        print_mock.assert_called_once_with(self._shell._list_users.__doc__)
+
+    @patch('libslack.slackapi.SlackApi')
+    @patch('builtins.print')
+    def test_if_do_list_prints_the_user_list_if_the_users_arg_is_provided(self, print_mock, slack_api_mock):
+        response_mock = Mock()
+        response_mock.data = self._users
+        slack_api_mock.call = response_mock
+        shell = SlackShell(self._auth_token)
+        shell.do_list('users')
+        self.assertTrue(print_mock.called)
+
+    @patch('libslack.slackapi.SlackApi')
+    @patch('builtins.print')
+    def test_if_do_list_prints_the_channel_list_if_the_channels_arg_is_provided(self, print_mock, slack_api_mock):
+        response_mock = Mock()
+        response_mock.data = self._users
+        slack_api_mock.call = response_mock
+        shell = SlackShell(self._auth_token)
+        shell.do_list('channels')
+        self.assertTrue(print_mock.called)
+
 
 if __name__ == '__main__':
     unittest.main()
