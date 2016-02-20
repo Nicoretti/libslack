@@ -23,6 +23,33 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import unittest
+from unittest.mock import Mock, patch
+import os
+import sys
+from libslack.slackapi import SlackApi
+from libslack.scmd import main
+from docopt import DocoptExit
+
+class ScmdTest(unittest.TestCase):
+
+    def setUp(self):
+        pass
+
+    @patch('sys.argv')
+    @patch('sys.exit')
+    def test_main_usage_is_printed_if_invalid_parameres_are_specified(self, exit_mock, argv_mock):
+        self.assertRaises(DocoptExit, main)
+
+    @patch.object(sys, 'argv', ['scmd.py', 'api'])
+    def test_main_exits_with_due_to_missing_auth_token(self):
+        self.assertRaises(SystemExit, main)
+
+    @patch('libslack.slackapi.SlackApi', spec=SlackApi)
+    @patch.object(sys, 'argv', ['scmd.py', 'api.test'])
+    @patch.object(os, 'environ', {'SLACK_API_TOKEN': 'xxx-yyy-zzz'})
+    def test_m(self, slackapi_mock):
+        slackapi_mock.return_value.call.return_value.response.return_value.is_error.return_value = True
+        self.assertRaises(SystemExit, main)
 
 if __name__ == '__main__':
     unittest.main()
