@@ -24,6 +24,8 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import sys
+import json
+
 
 import docopt
 
@@ -63,7 +65,7 @@ def main():
             error_message = "Error occured, details: {0}"
             print(error_message.format(response.get_error_message()), file=sys.stderr)
             exit(-2)
-        print(response.data)
+        print(json.dumps(response.data))
         exit(0)
 
 
