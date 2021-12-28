@@ -1,3 +1,10 @@
+.. attention::
+
+    This project is not maintained anymore, it just serves as an archive.
+    If you are looking for a python library for accessing the slack api
+    have a look at `slack-sdk <https://pypi.org/project/slack-sdk/>`_.
+
+
 libslack
 ========
 
@@ -14,24 +21,9 @@ Status
     :target: http://libslack.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. image:: https://landscape.io/github/Nicoretti/libslack/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/Nicoretti/libslack/master
-    :alt: Code Health
-
 .. image:: https://img.shields.io/badge/pypi%20package-available-blue.svg
     :target: https://pypi.python.org/pypi/libslack
     :alt: package on pypi
-
-Tickets
--------
-
-.. image:: https://graphs.waffle.io/Nicoretti/libslack/throughput.svg
-    :target: https://waffle.io/Nicoretti/libslack/metrics
-    :alt: 'Throughput Graph'
-
-.. image:: https://badge.waffle.io/Nicoretti/libslack.svg?label=ready&title=Ready&style=flat
-    :target: https://waffle.io/Nicoretti/libslack
-    :alt: 'Stories in Ready'
 
 Overview
 --------
